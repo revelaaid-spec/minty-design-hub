@@ -2,39 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Pastel Portfolio Design System - All colors in HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors */
+    --background: 48 100% 96%;  /* Light beige base */
+    --foreground: 220 13% 18%;
+
+    /* Pastel palette */
+    --sky-blue: 185 34% 78%;     /* #A8DADC */
+    --mint-green: 142 40% 82%;   /* #B7E4C7 */
+    --blush-pink: 19 65% 82%;    /* #FBC4AB */
+    --lavender: 270 24% 79%;     /* #CDB4DB */
+    --beige: 42 100% 85%;        /* #FFE5B4 */
+
+    /* Component colors using pastel palette */
+    --primary: 185 34% 78%;      /* Sky blue */
+    --primary-foreground: 220 13% 18%;
+    --primary-hover: 185 40% 72%;
+
+    --secondary: 142 40% 82%;    /* Mint green */
+    --secondary-foreground: 220 13% 18%;
+    --secondary-hover: 142 45% 76%;
+
+    --accent: 19 65% 82%;        /* Blush pink */
+    --accent-foreground: 220 13% 18%;
+    --accent-hover: 19 70% 76%;
+
+    --muted: 42 100% 90%;        /* Light beige */
+    --muted-foreground: 220 13% 40%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 13% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 13% 18%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --destructive: 0 70% 65%;
+    --destructive-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 94%;
+    --ring: 185 34% 78%;
 
     --radius: 0.5rem;
 
@@ -101,5 +111,42 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Custom pastel gradients */
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--sky-blue)), hsl(var(--mint-green)));
+  }
+  
+  .gradient-card {
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+  }
+
+  /* Smooth animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Glass effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
 }
